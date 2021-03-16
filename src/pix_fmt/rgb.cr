@@ -1,14 +1,14 @@
-require "./fields/red"
-require "./fields/green"
-require "./fields/blue"
+require "./fields/r"
+require "./fields/g"
+require "./fields/b"
 require "./rgba"
 
 module PixFmt
   struct RGB
 
-    include Fields::Red(UInt8)
-    include Fields::Green(UInt8)
-    include Fields::Blue(UInt8)
+    include Fields::R(UInt8)
+    include Fields::G(UInt8)
+    include Fields::B(UInt8)
 
     def initialize(@r : UInt8 = 0, @g : UInt8 = 0, @b : UInt8 = 0)
     end

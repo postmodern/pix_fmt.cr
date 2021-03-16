@@ -1,6 +1,6 @@
 module PixFmt
   module Fields
-    module Saturation(T)
+    module S(T)
       property s : T
 
       @[AlwaysInline]

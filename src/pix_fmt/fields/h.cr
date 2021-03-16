@@ -1,6 +1,6 @@
 module PixFmt
   module Fields
-    module Hue(T)
+    module H(T)
       property h : T
 
       @[AlwaysInline]

@@ -1,6 +1,6 @@
 module PixFmt
   module Fields
-    module Blue(T)
+    module B(T)
       property b : T
 
       @[AlwaysInline]
