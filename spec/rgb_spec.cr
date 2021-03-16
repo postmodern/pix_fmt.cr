@@ -155,9 +155,9 @@ Spectator.describe PixFmt::RGB do
     end
   end
 
-  let(red)   { 42_u8 }
-  let(green) { 42_u8 }
-  let(blue)  { 42_u8 }
+  let(red)   { 1_u8 }
+  let(green) { 2_u8 }
+  let(blue)  { 3_u8 }
 
   subject { described_class.new(r: red, g: green, b: blue) }
 
