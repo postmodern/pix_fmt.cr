@@ -1,11 +1,11 @@
-require "./fields/hue"
-require "./fields/saturation"
+require "./fields/h"
+require "./fields/s"
 
 module PixFmt
   struct HSV
 
-    include Fields::Hue(UInt8)
-    include Fields::Saturation(UInt8)
+    include Fields::H(UInt8)
+    include Fields::S(UInt8)
 
     property v : UInt8
 

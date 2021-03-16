@@ -1,11 +1,11 @@
-require "./has_hue"
-require "./has_saturation"
+require "./fields/h"
+require "./fields/s"
 
 module PixFmt
   struct HSL
 
-    include HasHue(UInt8)
-    include HasSaturation(UInt8)
+    include Fields::H(UInt8)
+    include Fields::S(UInt8)
 
     property l : UInt8
 
