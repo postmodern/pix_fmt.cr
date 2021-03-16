@@ -1,7 +1,7 @@
 # pix_fmt.cr
 
 A [Crystal] library for working with different pixel formats, such as RGB, RGBA,
-HSV, HSL, or YUYV.
+HSL, HSV, or YUYV.
 
 ## Features
 
@@ -31,6 +31,15 @@ require "pix_fmt/rgb"
 pix = PixFmt::RGB.new(0,255,0)
 yuyv_pix = pix.to_yuyv
 ```
+
+## TODO
+
+* Add arithmetic operation functions.
+* Add a YUYV -> RGB conversion function.
+* Add a RGB -> YUYV conversion function.
+* Add a RGBA -> RGB conversion function.
+* Add a HSL -> RGB conversion function.
+* Add a HSV -> RGB conversion function.
 
 ## Contributing
 
