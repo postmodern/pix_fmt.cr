@@ -54,5 +54,15 @@ module PixFmt
       @a == 255
     end
 
+    def to_rgb : RGB
+      RGB.new(r: @r, g: @g, b: @b)
+    end
+
+    def to_rgb(ptr : RGB *)
+      ptr.value.r = @r
+      ptr.value.g = @g
+      ptr.value.b = @b
+    end
+
   end
 end

@@ -330,4 +330,25 @@ Spectator.describe PixFmt::RGBA do
       it { expect(subject).to_not be_opaque }
     end
   end
+
+  describe "#to_rgb" do
+    it "must return a new RGBA struct with matching #r, #g, #b values" do
+      rgb = subject.to_rgb
+
+      expect(rgb.r).to eq(subject.r)
+      expect(rgb.g).to eq(subject.g)
+      expect(rgb.b).to eq(subject.b)
+    end
+  end
+
+  describe "#to_rgb(RGB *)" do
+    it "must set the #r, #g, and #b fields" do
+      rgb = PixFmt::RGB.new
+      subject.to_rgb(pointerof(rgb))
+
+      expect(rgb.r).to eq(subject.r)
+      expect(rgb.g).to eq(subject.g)
+      expect(rgb.b).to eq(subject.b)
+    end
+  end
 end

@@ -37,7 +37,6 @@ yuyv_pix = pix.to_yuyv
 * Add arithmetic operation functions.
 * Add a YUYV -> RGB conversion function.
 * Add a RGB -> YUYV conversion function.
-* Add a RGBA -> RGB conversion function.
 * Add a HSL -> RGB conversion function.
 * Add a HSV -> RGB conversion function.
 
