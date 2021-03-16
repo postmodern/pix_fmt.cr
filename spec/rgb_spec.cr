@@ -154,4 +154,33 @@ Spectator.describe PixFmt::RGB do
       expect(subject.b).to eq(blueness)
     end
   end
+
+  let(red)   { 42_u8 }
+  let(green) { 42_u8 }
+  let(blue)  { 42_u8 }
+
+  subject { described_class.new(r: red, g: green, b: blue) }
+
+  describe "#to_rgba" do
+    it "must return a new RGBA struct with matching #r, #g, #b values" do
+      rgba = subject.to_rgba
+
+      expect(rgba.r).to eq(subject.r)
+      expect(rgba.g).to eq(subject.g)
+      expect(rgba.b).to eq(subject.b)
+      expect(rgba.a).to eq(255)
+    end
+  end
+
+  describe "#to_rgba(RGBA *)" do
+    it "must set the #r, #g, #b and #a fields" do
+      rgba = PixFmt::RGBA.new
+      subject.to_rgba(pointerof(rgba))
+
+      expect(rgba.r).to eq(subject.r)
+      expect(rgba.g).to eq(subject.g)
+      expect(rgba.b).to eq(subject.b)
+      expect(rgba.a).to eq(255)
+    end
+  end
 end

@@ -1,6 +1,7 @@
 require "./fields/red"
 require "./fields/green"
 require "./fields/blue"
+require "./rgba"
 
 module PixFmt
   struct RGB
@@ -30,6 +31,17 @@ module PixFmt
 
     def self.blue(blue : UInt8 = 255)
       new(r: 0, g: 0, b: blue)
+    end
+
+    def to_rgba : RGBA
+      RGBA.new(r: @r, g: @g, b: @b)
+    end
+
+    def to_rgba(ptr : RGBA *)
+      ptr.value.r = @r
+      ptr.value.g = @g
+      ptr.value.b = @b
+      ptr.value.a = 255
     end
 
   end
