@@ -1,6 +1,7 @@
 require "./fields/r"
 require "./fields/g"
 require "./fields/b"
+require "./fields/a"
 
 module PixFmt
   struct RGBA
@@ -8,8 +9,7 @@ module PixFmt
     include Fields::R(UInt8)
     include Fields::G(UInt8)
     include Fields::B(UInt8)
-
-    property a : UInt8
+    include Fields::A(UInt8)
 
     def initialize(@r : UInt8 = 0, @g : UInt8 = 0, @b : UInt8 = 0, @a : UInt8 = 255)
     end
@@ -32,26 +32,6 @@ module PixFmt
 
     def self.blue(blue : UInt8 = 255, alpha : UInt8 = 255)
       new(r: 0, g: 0, b: blue, a: alpha)
-    end
-
-    @[AlwaysInline]
-    def alpha : UInt8
-      @a
-    end
-
-    @[AlwaysInline]
-    def alpha=(new_alpha : UInt8)
-      @a = new_alpha
-    end
-
-    @[AlwaysInline]
-    def transparent?
-      @a < 255
-    end
-
-    @[AlwaysInline]
-    def opaque?
-      @a == 255
     end
 
     def to_rgb : RGB
