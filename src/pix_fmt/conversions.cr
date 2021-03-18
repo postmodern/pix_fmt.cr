@@ -19,9 +19,9 @@ module PixFmt
       m = v - c
 
       if h >= 0 && h < 60
-        r, g, b = c, x, 0
+        r=c; g=x; b=0
       elsif h >= 60 && h < 120
-        r, g, b = x, c, 0
+        r=x; g=c; b=0
       elsif h >= 120 && h < 180
         r, g, b = 0, c, x
       elsif h >= 180 && h < 240
@@ -32,9 +32,7 @@ module PixFmt
         r, g, b = c, 0, x
       end
 
-      return ((r+m) * 255),
-             ((g+m) * 255),
-             ((b+m) * 255)
+      return {(r+m)*255, (g+m)*255, (b+m)*255}
     end
 
     def self.hsl_to_rgb(h : Float32, s : Float32, l : Float32) : {Float32, Float32, Float32}
@@ -68,9 +66,7 @@ module PixFmt
         r, g, b = c, 0, x
       end
 
-      return (r+m) * 255,
-             (g+m) * 255,
-             (b+m) * 255
+      return {(r+m)*255, (g+m)*255, (b+m)*255}
     end
   end
 end
