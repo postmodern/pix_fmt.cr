@@ -3,6 +3,12 @@ module PixFmt
     module G(T)
       property g : T
 
+      macro included
+        def self.green(green : UInt8 = 255)
+          new(g: green)
+        end
+      end
+
       @[AlwaysInline]
       def green : T
         @g

@@ -3,6 +3,12 @@ module PixFmt
     module R(T)
       property r : T
 
+      macro included
+        def self.red(red : UInt8 = 255)
+          new(r: red)
+        end
+      end
+
       @[AlwaysInline]
       def red : T
         @r
@@ -12,6 +18,7 @@ module PixFmt
       def red=(new_red : T)
         @r = new_red
       end
+
     end
   end
 end

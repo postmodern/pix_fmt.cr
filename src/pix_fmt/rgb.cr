@@ -21,18 +21,6 @@ module PixFmt
       gray(0)
     end
 
-    def self.red(red : UInt8 = 255)
-      new(r: red, g: 0, b: 0)
-    end
-
-    def self.green(green : UInt8 = 255)
-      new(r: 0, g: green, b: 0)
-    end
-
-    def self.blue(blue : UInt8 = 255)
-      new(r: 0, g: 0, b: blue)
-    end
-
     def to_rgba : RGBA
       RGBA.new(r: @r, g: @g, b: @b)
     end
