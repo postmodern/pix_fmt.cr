@@ -3,7 +3,7 @@ version: 0.1.0
 
 description: |
   Utility library for working with different pixel formats, such as RGB, ARGB,
-  HSL, HSV, YUV, and YUYV.
+  BGR, HSL, HSV, YUV, and YUYV.
 
 authors:
   - Postmodern <postmodern.mod3@gmail.com>
