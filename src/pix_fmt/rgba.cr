@@ -2,6 +2,7 @@ require "./fields/r"
 require "./fields/g"
 require "./fields/b"
 require "./fields/a"
+require "./grayscale"
 
 module PixFmt
   struct RGBA
@@ -10,6 +11,7 @@ module PixFmt
     include Fields::G(UInt8)
     include Fields::B(UInt8)
     include Fields::A(UInt8)
+    include Grayscale(UInt8)
 
     def initialize(@r : UInt8 = 0, @g : UInt8 = 0, @b : UInt8 = 0, @a : UInt8 = 255)
     end

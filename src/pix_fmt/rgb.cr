@@ -1,6 +1,7 @@
 require "./fields/r"
 require "./fields/g"
 require "./fields/b"
+require "./grayscale"
 require "./rgba"
 
 module PixFmt
@@ -9,16 +10,13 @@ module PixFmt
     include Fields::R(UInt8)
     include Fields::G(UInt8)
     include Fields::B(UInt8)
+    include Grayscale(UInt8)
 
     def initialize(@r : UInt8 = 0, @g : UInt8 = 0, @b : UInt8 = 0)
     end
 
     def self.gray(gray : UInt8)
       new(r: gray, g: gray, b: gray)
-    end
-
-    def self.black
-      gray(0)
     end
 
     def to_rgba : RGBA
