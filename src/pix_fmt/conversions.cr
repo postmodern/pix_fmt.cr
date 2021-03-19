@@ -75,7 +75,7 @@ module PixFmt
     g = 1.164 * (y - 16) - 0.813 * (v - 128) - 0.391 * (u - 128)
     r = 1.164 * (y - 16) + 1.596 * (v - 128)
 
-    return {r, g, b}
+    return {r.clamp(0,255), g.clamp(0,255), b.clamp(0,255)}
   end
 
   def self.rgb_to_yuv(r : Float32, g : Float32, b : Float32) {Float32, Float32, Float32}
@@ -83,6 +83,6 @@ module PixFmt
     v =  (0.439 * r) - (0.368 * g) - (0.071 * b) + 128
     u = -(0.148 * r) - (0.291 * g) + (0.439 * b) + 128
 
-    return {y, u, v}
+    return {y.clamp(0,255), u.clamp(0,255), v.clamp(0,255)}
   end
 end
