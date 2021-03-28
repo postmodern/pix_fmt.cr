@@ -26,4 +26,6 @@ module PixFmt
     end
 
   end
+
+  type HSV32 = HSVA
 end

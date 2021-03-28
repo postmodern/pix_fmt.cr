@@ -23,4 +23,6 @@ module PixFmt
     end
 
   end
+
+  type HSV24 = HSV
 end
