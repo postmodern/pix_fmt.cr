@@ -74,39 +74,39 @@ module PixFmt
 
       return {(r+m)*255, (g+m)*255, (b+m)*255}
     end
-  end
 
-  def self.hsl_to_rgb(h : UInt8, s : UInt8, l : UInt8) : {UInt8, UInt8, UInt8}
-    r, g, b = hsl_to_rgb((h / 255) * 360.0, s / 255, l / 255)
+    def self.hsl_to_rgb(h : UInt8, s : UInt8, l : UInt8) : {UInt8, UInt8, UInt8}
+      r, g, b = hsl_to_rgb((h / 255) * 360.0, s / 255, l / 255)
 
-    {r.to_u8, g.to_u8, b.to_u8}
-  end
+      {r.to_u8, g.to_u8, b.to_u8}
+    end
 
-  def self.yuv_to_rgb(y : Float32, u : Float32, v : Float32) {Float32, Float32, Float32}
-    b = 1.164 * (y - 16)                     + 2.018 * (u - 128)
-    g = 1.164 * (y - 16) - 0.813 * (v - 128) - 0.391 * (u - 128)
-    r = 1.164 * (y - 16) + 1.596 * (v - 128)
+    def self.yuv_to_rgb(y : Float32, u : Float32, v : Float32) {Float32, Float32, Float32}
+      b = 1.164 * (y - 16)                     + 2.018 * (u - 128)
+      g = 1.164 * (y - 16) - 0.813 * (v - 128) - 0.391 * (u - 128)
+      r = 1.164 * (y - 16) + 1.596 * (v - 128)
 
-    return {r.clamp(0,255), g.clamp(0,255), b.clamp(0,255)}
-  end
+      return {r.clamp(0,255), g.clamp(0,255), b.clamp(0,255)}
+    end
 
-  def self.yuv_to_rgb(y : UInt8, u : UInt8, v : UInt8) {UInt8, UInt8, UInt8}
-    r, g, b = yuv_to_rgb(y.to_f, u.to_f, v.to_f)
+    def self.yuv_to_rgb(y : UInt8, u : UInt8, v : UInt8) {UInt8, UInt8, UInt8}
+      r, g, b = yuv_to_rgb(y.to_f, u.to_f, v.to_f)
 
-    return {r.to_u8, g.to_u8, b.to_u8}
-  end
+      return {r.to_u8, g.to_u8, b.to_u8}
+    end
 
-  def self.rgb_to_yuv(r : Float32, g : Float32, b : Float32) {Float32, Float32, Float32}
-    y =  (0.257 * r) + (0.504 * g) + (0.098 * b) + 16
-    v =  (0.439 * r) - (0.368 * g) - (0.071 * b) + 128
-    u = -(0.148 * r) - (0.291 * g) + (0.439 * b) + 128
+    def self.rgb_to_yuv(r : Float32, g : Float32, b : Float32) {Float32, Float32, Float32}
+      y =  (0.257 * r) + (0.504 * g) + (0.098 * b) + 16
+      v =  (0.439 * r) - (0.368 * g) - (0.071 * b) + 128
+      u = -(0.148 * r) - (0.291 * g) + (0.439 * b) + 128
 
-    return {y.clamp(0,255), u.clamp(0,255), v.clamp(0,255)}
-  end
+      return {y.clamp(0,255), u.clamp(0,255), v.clamp(0,255)}
+    end
 
-  def self.rgb_to_yuv(r : UInt8, g : UInt8, b : UInt8) : {UInt8, UInt8, UInt8}
-    y, u, v = rgb_to_yuv(r.to_f, g.to_f, b.to_f)
+    def self.rgb_to_yuv(r : UInt8, g : UInt8, b : UInt8) : {UInt8, UInt8, UInt8}
+      y, u, v = rgb_to_yuv(r.to_f, g.to_f, b.to_f)
 
-    return {y.to_u8, u.to_u8, v.to_u8}
+      return {y.to_u8, u.to_u8, v.to_u8}
+    end
   end
 end
