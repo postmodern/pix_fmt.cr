@@ -1,14 +1,13 @@
 # pix_fmt.cr
 
 A [Crystal] library for working with different pixel formats, such as RGB, RGBA,
-BGR, HSL, HSV, YUV, and YUYV.
+BGR, HSL, HSV, HSVA, YUV, and YUYV.
 
 ## Features
 
-* RGB
-* RGBA
+* RGB / RGBA
 * BGR
-* HSV
+* HSV / HSVA
 * HSL
 * YUV
 * YUYV
