@@ -10,7 +10,7 @@ module PixFmt
       end
 
       def self.to_rgb(y : UInt8, u : UInt8, v : UInt8) {UInt8, UInt8, UInt8}
-        r, g, b = yuv_to_rgb(y.to_f, u.to_f, v.to_f)
+        r, g, b = to_rgb(y.to_f, u.to_f, v.to_f)
 
         return {r.to_u8, g.to_u8, b.to_u8}
       end
